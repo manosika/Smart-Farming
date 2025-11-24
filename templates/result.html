@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Yield Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f1f8e9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #388e3c;
+            margin-top: 40px;
+        }
+
+        .result-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .result-container img {
+            max-width: 80%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .back-link {
+            margin-top: 20px;
+            text-decoration: none;
+            color: #388e3c;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .back-link:hover {
+            color: #1b5e20;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Crop Yield Prediction Result</h1>
+
+        <!-- Display message if no exact match was found -->
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+
+        <!-- Display the plot -->
+        {% if plot_url.startswith('data:image/png;base64,') %}
+            <img src="{{ plot_url }}" alt="Yield Prediction Graph">
+        {% else %}
+            <p class="error-message">{{ plot_url }}</p>
+        {% endif %}
+
+        <a class="back-link" href="/">Back to Home</a>
+    </div>
+</body>
+</html>

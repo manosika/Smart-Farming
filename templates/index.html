@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Farming App</title>
+    <style>
+        /* Add your styling here */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00796b;
+            margin-top: 40px;
+        }
+
+        .form-container {
+            width: 50%;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container label {
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: block;
+            color: #00796b;
+        }
+
+        .form-container input,
+        .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #00796b;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #004d40;
+        }
+
+        .form-container p {
+            text-align: center;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .form-container a {
+            text-decoration: none;
+            color: #00796b;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Smart Farming - Crop Yield Prediction</h1>
+    <div class="form-container">
+        <form action="/predict" method="POST">
+            <label for="temperature">Temperature (°C):</label>
+            <input type="text" id="temperature" name="temperature" required><br>
+
+            <label for="humidity">Humidity (%):</label>
+            <input type="text" id="humidity" name="humidity" required><br>
+
+            <label for="weather">Weather (e.g., Sunny, Rainy):</label>
+            <input type="text" id="weather" name="weather" required><br>
+
+            <label for="season">Season (e.g., Summer, Monsoon):</label>
+            <input type="text" id="season" name="season" required><br>
+
+            <label for="crop_name">Crop Name (e.g., Rice, Corn):</label>
+            <input type="text" id="crop_name" name="crop_name" required><br>
+
+            <label for="visualization">Choose Visualization Type:</label>
+            <select id="visualization" name="visualization" required>
+                <option value="line">Line Plot</option>
+                <option value="bar">Bar Chart</option>
+                <option value="scatter">Scatter Plot</option>
+            </select><br>
+
+            <button type="submit">Predict Yield</button>
+        </form>
+    </div>
+</body>
+</html>
